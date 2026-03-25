@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Lusi Preorder</title>
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =====================================================
+       ABOUT PAGE — Specific Styles
+       The intro logo + text block and value cards use
+       Bootstrap's grid. The accordion uses Bootstrap's
+       built-in accordion component.
+       ===================================================== */
+
+    /* ── ABOUT LOGO IMAGE ──────────────────────────────── */
+    /* Circular logo with a gold border ring */
+    .about-logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--gold);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* On small screens the logo stacks above text and centers */
+    @media (max-width: 575px) {
+      .about-logo {
+        width: 130px;
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR (About Us is "active")
+       ══════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg lusi-nav sticky-top" id="mainNav">
+    <div class="container-fluid px-3 px-md-4">
+
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2 text-decoration-none">
+        <img src="img/business_logo.jpg" alt="Lusi Preorder" class="nav-logo-img">
+        <span>
+          <span class="brand-name">Lusi Preorder</span>
+          <span class="brand-tagline">Beauty Products and More</span>
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1 py-2 py-lg-0">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="About.html" class="nav-link active">About Us</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="Bank.html" class="nav-link btn-nav-pill">Pay / Bank</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- ── PAGE HERO BANNER ──────────────────────────────── -->
+    <div class="page-hero">
+      <span class="section-label">✦ Who We Are</span>
+      <h1>About Us</h1>
+      <p>A small business with a big heart for beauty — serving Belize with love</p>
+    </div>
+
+    <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+    <section class="py-5">
+      <div class="container">
+
+        <!-- ── ABOUT INTRO: Logo + Text side by side ──────── -->
+        <!--
+          Bootstrap's row + col creates two columns:
+            col-sm-auto → logo takes only as much space as it needs
+            col-sm      → text stretches to fill the rest
+          On xs (phones) they stack vertically (default behavior).
+        -->
+        <div class="row align-items-center g-4 g-lg-5 justify-content-center mb-5">
+
+          <!-- Left: circular logo -->
+          <div class="col-auto text-center text-sm-start">
+            <img src="img/business_logo.jpg" alt="Lusi Preorder" class="about-logo">
+          </div>
+
+          <!-- Right: story text -->
+          <div class="col-sm" style="max-width: 520px;">
+            <span class="section-label">Our Story</span>
+            <h2 class="section-title" style="font-size: clamp(1.6rem, 4vw, 2.4rem);">
+              Lusi Preorder
+            </h2>
+            <p style="font-size: 1.02rem; color: var(--text-mid); line-height: 1.9; margin-bottom: 1.5rem;">
+              We're a Belizean beauty pre-order business dedicated to bringing you
+              high-quality makeup and beauty products at prices that make sense.
+              We believe everyone deserves to feel glamorous — without breaking the bank.
+            </p>
+            <a href="products.html" class="btn-lusi btn-plum">Browse Products &rarr;</a>
+          </div>
+
+        </div>
+
+        <!-- Gold gradient divider line -->
+        <div class="section-divider"></div>
+
+        <!-- ── OUR VALUES ──────────────────────────────────── -->
+        <div class="text-center mb-4">
+          <span class="section-label">✦ What Drives Us</span>
+          <h2 class="section-title">Our Values</h2>
+        </div>
+
+        <!--
+          3 value cards in a row.
+          Bootstrap col classes:
+            col-md-4 → 3 cards side by side on tablet+
+            col-sm-6 → 2 per row on small screens
+            col-12   → 1 per row on mobile (default)
+        -->
+        <div class="row g-3 mb-5">
+
+          <div class="col-sm-6 col-md-4">
+            <div class="value-card">
+              <h4>Quality First</h4>
+              <p>Every product is carefully picked to ensure you're getting something worth your money and your glow.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="value-card">
+              <h4>Customer Love</h4>
+              <p>We put our customers first, always. From the moment you message us to when your order arrives.</p>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-4">
+            <div class="value-card">
+              <div class="fs-2 mb-2">🇧🇿</div>
+              <h4>Community Roots</h4>
+              <p>We're a Belizean business, proud to serve our local communities in Orange Walk, Corozal, and beyond.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── FAQ ACCORDION ───────────────────────────────── -->
+        <!--
+          Using Bootstrap's built-in accordion component.
+          data-bs-toggle="collapse" and data-bs-target handle
+          the open/close without any custom JavaScript.
+          We override the colors in style.css under .lusi-accordion.
+        -->
+        <div class="text-center mb-4">
+          <span class="section-label">✦ Learn More</span>
+          <h2 class="section-title">FAQs &amp; Info</h2>
+        </div>
+
+        <div class="accordion lusi-accordion" id="faqAccordion" style="max-width: 720px; margin: 0 auto;">
+
+          <!-- FAQ item 1: Mission (open by default) -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#mission"
+                aria-expanded="true" aria-controls="mission">
+                Our Mission
+              </button>
+            </h2>
+            <div id="mission" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                We aim to provide the best service and high-quality beauty products to our
+                customers across Belize — making glam accessible and affordable for everyone.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ item 2: Vision -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#vision" aria-expanded="false" aria-controls="vision">
+                Our Vision
+              </button>
+            </h2>
+            <div id="vision" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                To become the go-to trusted beauty pre-order brand in Belize — known for
+                reliability, great prices, and products people genuinely love.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ item 3: Why Choose Us -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#whyUs"
+                aria-expanded="false" aria-controls="whyUs">
+                Why Choose Lusi Preorder?
+              </button>
+            </h2>
+            <div id="whyUs" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Affordable prices, fast delivery to your area, easy WhatsApp ordering,
+                and a personal touch you won't find from big stores. We actually care
+                about you getting what you ordered!
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ item 4: How to Order -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#howToOrder" aria-expanded="false" aria-controls="howToOrder">
+                How Do I Order?
+              </button>
+            </h2>
+            <div id="howToOrder" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Browse our <a href="products.html" style="color:var(--plum)">Products page</a>,
+                then tap "Order via WhatsApp" on anything you like. We'll chat with you about
+                pricing and delivery. Pay via bank transfer or cash, and we'll bring it right to you!
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /accordion -->
+
+      </div>
+    </section>
+
+    <!-- ── FOOTER ────────────────────────────────────────── -->
+    <footer class="lusi-footer">
+      <div class="footer-logo">Lusi Preorder</div>
+      <div class="footer-tagline">✦ Beauty Products and More ✦</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="Bank.html">Bank Account</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Lusi Preorder &nbsp;|&nbsp; lusipreorder@gmail.com &nbsp;|&nbsp; +501 604-6763
+      </div>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <!-- Bootstrap JS handles accordion, navbar collapse, etc. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ── NAVBAR SHADOW ON SCROLL ──────────────────────────────────
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').style.boxShadow =
+        window.scrollY > 30 ? '0 4px 20px rgba(107,45,94,0.12)' : 'none';
+    });
+    // Note: No custom accordion JS needed — Bootstrap handles it via
+    // data-bs-toggle="collapse" attributes in the HTML above.
+  </script>
+
+</body>
+
+</html>

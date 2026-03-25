@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Lusi Preorder</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR (Contact is "active")
+       ══════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg lusi-nav sticky-top" id="mainNav">
+    <div class="container-fluid px-3 px-md-4">
+
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2 text-decoration-none">
+        <img src="img/business_logo.jpg" alt="Lusi Preorder" class="nav-logo-img">
+        <span>
+          <span class="brand-name">Lusi Preorder</span>
+          <span class="brand-tagline">Beauty Products and More</span>
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1 py-2 py-lg-0">
+          <li class="nav-item"><a href="index.html"    class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="About.html"    class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="contact.html"  class="nav-link active">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="Bank.html" class="nav-link btn-nav-pill">Pay / Bank</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- ── PAGE HERO BANNER ──────────────────────────────── -->
+    <div class="page-hero">
+      <span class="section-label">✦ Reach Out</span>
+      <h1>Contact Us</h1>
+      <p>Got a question or want to place an order? We'd love to hear from you! 💜</p>
+    </div>
+
+    <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+    <section class="py-5">
+      <div class="container">
+
+        <!--
+          Two-column contact layout using Bootstrap's grid.
+          
+          Left column (col-lg-5)  → Contact info cards + WhatsApp CTA
+          Right column (col-lg-7) → Message form card
+          
+          On mobile (< lg) they stack: contact info first, form below.
+        -->
+        <div class="row g-4 g-lg-5" style="max-width: 960px; margin: 0 auto;">
+
+          <!-- ── LEFT: CONTACT INFO ──────────────────────── -->
+          <div class="col-lg-5">
+
+            <!-- WhatsApp card (entire card is a clickable link) -->
+            <a href="https://wa.me/5016046763" target="_blank" rel="noopener" class="contact-card">
+              <div class="cc-icon wa">
+                <!-- WhatsApp SVG icon in brand green -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="cc-label">WhatsApp</span>
+                <div class="cc-value">+501 604-6763</div>
+                <div class="cc-sub">Tap to chat — fastest response!</div>
+              </div>
+            </a>
+
+            <!-- Email card -->
+            <a href="mailto:lusipreorder@gmail.com" class="contact-card">
+              <div class="cc-icon em">📧</div>
+              <div>
+                <span class="cc-label">Email</span>
+                <div class="cc-value">lusipreorder@gmail.com</div>
+                <div class="cc-sub">We'll reply within 24 hours</div>
+              </div>
+            </a>
+
+            <!-- Phone card -->
+            <a href="tel:+5016046763" class="contact-card">
+              <div class="cc-icon ph">📞</div>
+              <div>
+                <span class="cc-label">Phone</span>
+                <div class="cc-value">604-6763</div>
+                <div class="cc-sub">Call us during business hours</div>
+              </div>
+            </a>
+
+            <!-- Big WhatsApp chat button -->
+            <a href="https://wa.me/5016046763?text=Hi%2C%20I%20have%20a%20question%20about%20Lusi%20Preorder!"
+              target="_blank" rel="noopener" class="wa-cta">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Start a WhatsApp Chat
+            </a>
+
+          </div>
+          <!-- /left column -->
+
+          <!-- ── RIGHT: CONTACT FORM ─────────────────────── -->
+          <div class="col-lg-7">
+            <div class="form-card">
+              <h3>Send a Message</h3>
+              <p style="font-size: 0.85rem; color: var(--text-mid); margin-bottom: 1.8rem;">
+                Fill this out and we'll get back to you shortly. Or just WhatsApp us! 💜
+              </p>
+
+              <!-- Success toast — shown via JS after submit -->
+              <div class="lusi-toast" id="successToast">
+                ✅ Message sent! We'll be in touch soon.
+              </div>
+
+              <!--
+                Bootstrap's row/col inside the form creates the two-column
+                name fields on desktop. On mobile (col-12) they stack.
+              -->
+              <div class="row g-3">
+
+                <!-- First name -->
+                <div class="col-sm-6">
+                  <label class="lusi-label" for="name">First Name</label>
+                  <input type="text" id="name" class="form-control lusi-input" placeholder="Your name">
+                </div>
+
+                <!-- Last name -->
+                <div class="col-sm-6">
+                  <label class="lusi-label" for="surname">Last Name</label>
+                  <input type="text" id="surname" class="form-control lusi-input" placeholder="Your surname">
+                </div>
+
+                <!-- Email — full width -->
+                <div class="col-12">
+                  <label class="lusi-label" for="email">Email Address</label>
+                  <input type="email" id="email" class="form-control lusi-input" placeholder="email@example.com">
+                </div>
+
+                <!-- Message textarea — full width -->
+                <div class="col-12">
+                  <label class="lusi-label" for="message">Your Message</label>
+                  <textarea id="message" class="form-control lusi-input" rows="4"
+                    placeholder="What would you like to know? How can we help?"></textarea>
+                </div>
+
+                <!-- Submit button — full width -->
+                <div class="col-12">
+                  <button class="btn-lusi btn-plum w-100 justify-content-center" id="submitBtn"
+                    onclick="handleSubmit()">
+                    Send Message
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- /right column -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ────────────────────────────────────────── -->
+    <footer class="lusi-footer">
+      <div class="footer-logo">Lusi Preorder</div>
+      <div class="footer-tagline">✦ Beauty Products and More ✦</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="Bank.html">Bank Account</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Lusi Preorder &nbsp;|&nbsp; lusipreorder@gmail.com &nbsp;|&nbsp; +501 604-6763
+      </div>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ── NAVBAR SHADOW ON SCROLL ──────────────────────────────────
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').style.boxShadow =
+        window.scrollY > 30 ? '0 4px 20px rgba(107,45,94,0.12)' : 'none';
+    });
+
+    // ── FORM SUBMIT HANDLER ──────────────────────────────────────
+    // There's no backend server, so the form:
+    //   1. Validates the fields are filled in
+    //   2. Shows a green success toast
+    //   3. Opens WhatsApp with the message pre-filled
+    //   4. Clears the form
+    function handleSubmit() {
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Basic validation — all required fields must be filled
+      if (!name || !email || !message) {
+        alert('Please fill in all fields before sending 💜');
+        return;
+      }
+
+      // Build the WhatsApp message from form data
+      const waText = encodeURIComponent(
+        `Hi Lusi Preorder! My name is ${name} (${email}).\n\n${message}`
+      );
+      const waLink = `https://wa.me/5016046763?text=${waText}`;
+
+      // Show the green success toast
+      document.getElementById('successToast').classList.add('show');
+
+      // After 800ms, open WhatsApp with the pre-filled message
+      setTimeout(() => { window.open(waLink, '_blank'); }, 800);
+
+      // Clear all form fields
+      ['name', 'surname', 'email', 'message'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+    }
+  </script>
+
+</body>
+</html>

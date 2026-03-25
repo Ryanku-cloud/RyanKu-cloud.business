@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lusi Preorder | Beauty & Makeup</title>
+
+  <!-- Lipstick favicon (emoji SVG trick) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+
+  <!-- Bootstrap 5 CSS — handles grid, navbar, accordion, utilities -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Our custom Lusi styles (overrides Bootstrap defaults with brand colors) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =====================================================
+       HOME PAGE — Hero & Feature Section Styles
+       These are page-specific and don't belong in the
+       shared stylesheet since only index.html uses them.
+       ===================================================== */
+
+    /* ── HERO SECTION ──────────────────────────────────── */
+    /* Full-viewport hero with cream-to-blush gradient */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--blush-light) 0%, var(--cream) 50%, var(--cream-dark) 100%);
+      padding: 5rem 1.5rem;
+    }
+
+    /* Large decorative blob — top-right corner */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 198, 208, 0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Smaller blob — bottom-left corner */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 169, 110, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Content inside hero sits above the blobs (z-index: 2) */
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Circular logo with gold border that gently floats */
+    .hero-logo-wrap {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      overflow: hidden;
+      margin: 0 auto 2rem;
+      box-shadow: 0 0 0 8px rgba(201, 169, 110, 0.15), var(--shadow-md);
+      animation: float 4s ease-in-out infinite;
+      /* CSS-only float animation */
+    }
+
+    /* Smooth up-and-down floating keyframes */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .hero-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* "✦ Welcome to Lusi Preorder ✦" gold uppercase label */
+    .hero-prelabel {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+      /* Staggered fade-in */
+    }
+
+    /* Main H1 — large serif with italic accent */
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      /* Fluid font size */
+      font-weight: 300;
+      color: var(--plum-dark);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    /* The "love & afford" italic part of the headline */
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--plum);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 460px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    /* CTA button row — stacks to column on small screens */
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+
+    /* "Scroll ↓" hint at bottom of hero */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      animation: fadeUp 1s 0.8s ease both;
+      z-index: 2;
+    }
+
+    /* Bouncing arrow keyframes */
+    .scroll-hint .arrow {
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(5px);
+      }
+    }
+
+    /* ── DELIVERY BANNER ───────────────────────────────── */
+    /* Deep plum full-width strip with delivery pills */
+    .delivery-banner {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--plum-dark) 100%);
+      color: var(--white);
+      padding: 4rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Diagonal gold stripe pattern — purely decorative */
+    .delivery-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(-45deg,
+          transparent, transparent 80px,
+          rgba(201, 169, 110, 0.05) 80px,
+          rgba(201, 169, 110, 0.05) 160px);
+      pointer-events: none;
+    }
+
+    .delivery-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      position: relative;
+      /* Sit above the ::before stripe */
+    }
+
+    .delivery-banner p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    /* Frosted glass pill badges for each delivery location */
+    .delivery-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      position: relative;
+    }
+
+    .delivery-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 0.6rem 1.4rem;
+      font-size: 0.85rem;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Gold price text inside each pill */
+    .delivery-pill strong {
+      color: var(--gold-light);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR — Bootstrap's navbar-expand-lg component
+       
+       Bootstrap handles:
+         • .navbar-collapse → hidden on mobile, shown on lg+
+         • .navbar-toggler  → the hamburger button
+         • data-bs-toggle   → JS collapse behavior (no code needed!)
+       ══════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg lusi-nav sticky-top" id="mainNav">
+    <div class="container-fluid px-3 px-md-4">
+
+      <!-- Brand logo + name (left side) -->
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2 text-decoration-none">
+        <img src="img/business_logo.jpg" alt="Lusi Preorder" class="nav-logo-img">
+        <span>
+          <span class="brand-name">Lusi Preorder</span>
+          <span class="brand-tagline">Beauty Products and More</span>
+        </span>
+      </a>
+
+      <!-- Hamburger toggle — Bootstrap shows this automatically on mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Desktop links — collapses into hamburger on mobile -->
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1 py-2 py-lg-0">
+          <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="About.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="Bank.html" class="nav-link btn-nav-pill">Pay / Bank</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════
+       PAGE CONTENT — All sections wrapped in page-wrapper
+       (this gets the fade-in animation on page load)
+       ══════════════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+
+    <!-- ── HERO ────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-inner">
+
+        <!-- Floating circular logo -->
+        <div class="hero-logo-wrap">
+          <img src="img/business_logo.jpg" alt="Lusi Preorder">
+        </div>
+
+        <p class="hero-prelabel">✦ Welcome to Lusi Preorder ✦</p>
+
+        <!-- Main headline — "em" makes the bottom line italic+bold -->
+        <h1>Beauty you'll<br><em>love &amp; afford</em></h1>
+
+        <p class="hero-desc">
+          Curated makeup &amp; beauty products delivered right to you in Belize.
+          Pre-order with ease, pay securely, and glow up.
+        </p>
+
+        <!-- Two CTA buttons side by side (wrap on mobile) -->
+        <div class="hero-ctas">
+          <a href="products.html" class="btn-lusi btn-plum">Shop Products &rarr;</a>
+          <a href="contact.html" class="btn-lusi btn-outline-plum">WhatsApp Us</a>
+        </div>
+
+      </div>
+
+      <!-- Subtle scroll down hint at the very bottom -->
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <span class="arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ── FEATURE BOXES ────────────────────────────────── -->
+    <!--
+      Bootstrap's row + col-* grid handles the 4-column layout.
+      On mobile (xs): 1 col | tablet (sm): 2 cols | desktop (lg): 4 cols
+    -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="row g-4">
+
+          <!-- Quality box -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="info-box">
+              <h5> Quality</h5>
+              <p>Hand-picked, top-quality beauty products — because you deserve the best.</p>
+            </div>
+          </div>
+
+          <!-- Affordable box -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="info-box">
+              <h5> Affordable</h5>
+              <p>Luxury looks without the luxury price tag. Prices you can actually trust.</p>
+            </div>
+          </div>
+
+          <!-- Delivery fees box -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="info-box">
+              <h5> Delivery Fees</h5>
+              <p>
+                San Narciso — <strong>$2</strong><br>
+                San Roman — <strong>$2</strong><br>
+                Orange Walk (park) — <strong>$3</strong><br>
+                Corozal (park) — <strong>$3</strong>
+              </p>
+            </div>
+          </div>
+
+          <!-- Support box -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="info-box">
+              <h5> Support</h5>
+              <p>
+                Email us at <a href="mailto:lusipreorder@gmail.com" style="color:var(--plum)">lusipreorder@gmail.com</a>
+                or call <strong>604-6763</strong>.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="info-box">
+              <h5> Shipping</h5>
+              <p>
+                Tropic Air <strong></strong><br>
+                Post Office <strong></strong><br>
+                Bpms <strong></strong><br>
+                ID'S <strong></strong>
+                Ezy Delivery <strong></strong>
+              </p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- ── FEATURED PRODUCTS STRIP ──────────────────────── -->
+    <!-- Shows 4 preview cards generated by JavaScript below -->
+    <section class="py-5" style="background: var(--cream);">
+      <div class="container">
+
+        <!-- Header row: title left, "View All" button right -->
+        <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-4">
+          <div>
+            <span class="section-label">✦ Fresh Picks</span>
+            <h2 class="section-title mb-0">Featured Products</h2>
+          </div>
+          <a href="products.html" class="btn-lusi btn-outline-plum">View All &rarr;</a>
+        </div>
+
+        <!--
+          Bootstrap row — 4 product cards side by side on desktop.
+          JS fills this in (see script below)
+        -->
+        <div class="row g-3" id="featuredProducts"></div>
+
+      </div>
+    </section>
+
+    <!-- ── DELIVERY BANNER ──────────────────────────────── -->
+    <section class="delivery-banner">
+      <h2>We Deliver Across Belize 🇧🇿</h2>
+      <p>Affordable delivery to your area. Pre-order &amp; pay, then we bring it to you.</p>
+
+      <div class="delivery-pills">
+        <div class="delivery-pill">San Narciso <strong>$2</strong></div>
+        <div class="delivery-pill">San Roman <strong>$2</strong></div>
+        <div class="delivery-pill">Orange Walk (park) <strong>$3</strong></div>
+        <div class="delivery-pill">Corozal (park) <strong>$3</strong></div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ────────────────────────────────────────── -->
+    <footer class="lusi-footer">
+      <div class="footer-logo">Lusi Preorder</div>
+      <div class="footer-tagline">✦ Beauty Products and More ✦</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="Bank.html">Bank Account</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Lusi Preorder &nbsp;|&nbsp; lusipreorder@gmail.com &nbsp;|&nbsp; +501 604-6763
+      </div>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <!-- Bootstrap 5 JS Bundle (includes Popper — needed for collapse/dropdown) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ── NAVBAR SHADOW ON SCROLL ──────────────────────────────────
+    // Adds a subtle box-shadow to the sticky navbar when the user
+    // scrolls down even a tiny bit — gives depth to the page.
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('mainNav');
+      nav.style.boxShadow = window.scrollY > 30
+        ? '0 4px 20px rgba(107,45,94,0.12)'
+        : 'none';
+    });
+
+    // ── FEATURED PRODUCTS GENERATOR ─────────────────────────────
+    // Renders the first 4 product preview cards on the homepage.
+    // Each card has an image, label, and a WhatsApp order button.
+    const featuredProducts = [
+      { id: 1, ext: 'jpeg' },
+      { id: 2, ext: 'png' },
+      { id: 3, ext: 'jpeg' },
+      { id: 4, ext: 'jpeg' },
+    ];
+
+    const container = document.getElementById('featuredProducts');
+
+    featuredProducts.forEach(p => {
+      // Build a pre-filled WhatsApp message link for each product
+      const waMsg = encodeURIComponent(`Hi! I'd like to order Product #${p.id} from your store.`);
+      const waLink = `https://wa.me/5016046763?text=${waMsg}`;
+
+      // WhatsApp SVG icon (inline so no external icon library needed)
+      const waSVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+
+      // col-sm-6 col-lg-3 = 2 per row on tablet, 4 per row on desktop
+      container.innerHTML += `
+        <div class="col-sm-6 col-lg-3 d-flex">
+          <div class="product-card w-100">
+            <div class="card-img-wrap">
+              <span class="card-badge">Pre-order</span>
+              <img src="img/item${p.id}.${p.ext}" alt="Product ${p.id}" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-title">Item #${p.id}</div>
+              <div class="card-subtitle">Quality makeup product — enquire for details &amp; pricing.</div>
+              <a href="${waLink}" target="_blank" rel="noopener" class="card-order-btn">
+                ${waSVG} Order via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>`;
+    });
+  </script>
+
+</body>
+
+</html>

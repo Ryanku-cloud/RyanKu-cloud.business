@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Lusi Preorder</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =====================================================
+       PRODUCTS PAGE — Specific Styles
+       Bootstrap handles the grid; these styles handle the
+       search bar, filter UI, and empty state.
+       ===================================================== */
+
+    /* ── SEARCH + FILTER BAR ───────────────────────────── */
+    /* The search input with a custom icon inside it */
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .search-wrap .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-mid);
+      font-size: 0.9rem;
+      pointer-events: none; /* Don't block clicks on the input */
+    }
+
+    /* Extra left padding to make room for the search icon */
+    .search-wrap input {
+      padding-left: 2.8rem !important;
+    }
+
+    /* Item count text "Showing 38 items" */
+    .item-count {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      white-space: nowrap;
+    }
+
+    .item-count strong { color: var(--plum); }
+
+    /* ── PRODUCT GRID ──────────────────────────────────── */
+    /*
+      This is where the Bootstrap CSS grid shines.
+      We use Bootstrap's row + col-* classes to automatically
+      make the product grid responsive:
+        Mobile:  2 columns (col-6)
+        Tablet:  3 columns (col-md-4)
+        Desktop: 4 columns (col-xl-3)
+      No media queries needed — Bootstrap handles it all.
+    */
+    /* No extra CSS needed here — Bootstrap row/col does the work */
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR (same across all pages, Products is "active")
+       ══════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg lusi-nav sticky-top" id="mainNav">
+    <div class="container-fluid px-3 px-md-4">
+
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2 text-decoration-none">
+        <img src="img/business_logo.jpg" alt="Lusi Preorder" class="nav-logo-img">
+        <span>
+          <span class="brand-name">Lusi Preorder</span>
+          <span class="brand-tagline">Beauty Products and More</span>
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1 py-2 py-lg-0">
+          <li class="nav-item"><a href="index.html"    class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="About.html"    class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link active">Products</a></li>
+          <li class="nav-item"><a href="contact.html"  class="nav-link">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a href="Bank.html" class="nav-link btn-nav-pill">Pay / Bank</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- ── PAGE HERO BANNER ──────────────────────────────── -->
+    <div class="page-hero">
+      <span class="section-label">✦ Our Collection</span>
+      <h1>All Products</h1>
+      <p>Browse our curated selection of beauty &amp; makeup goodies. Order via WhatsApp.</p>
+    </div>
+
+    <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+    <section class="py-5">
+      <div class="container">
+
+        <!-- Info note about how to order -->
+        <div class="alert-lusi mb-4">
+          <span class="fs-5">💡</span>
+          <span>
+            To order, tap <strong>Order via WhatsApp</strong> on any product —
+            we'll sort out pricing and delivery details together!
+          </span>
+        </div>
+
+        <!-- ── SEARCH BAR + ITEM COUNT ──────────────────── -->
+        <!--
+          Bootstrap's d-flex utility makes this row flexible:
+          the search input stretches to fill space, the item
+          count label stays on the right.
+        -->
+        <div class="d-flex align-items-center gap-3 flex-wrap mb-4">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input
+              type="text"
+              id="searchInput"
+              class="lusi-input form-control"
+              placeholder="Search products…"
+              autocomplete="off"
+            >
+          </div>
+          <div class="item-count" id="itemCount">
+            Showing <strong>38</strong> items
+          </div>
+        </div>
+
+        <!-- ── PRODUCT GRID ──────────────────────────────── -->
+        <!--
+          Bootstrap row with gutter spacing (g-3).
+          Each card gets these column classes (set by JS):
+            col-6       = 2 per row on phones
+            col-md-4    = 3 per row on tablets
+            col-xl-3    = 4 per row on large screens
+        -->
+        <div class="row g-3" id="productGrid"></div>
+
+        <!-- ── PAGINATION ────────────────────────────────── -->
+        <!-- JS-generated page buttons (prev / 1 2 3 / next) -->
+        <div class="lusi-pagination" id="pagination"></div>
+
+      </div>
+    </section>
+
+    <!-- ── FOOTER ────────────────────────────────────────── -->
+    <footer class="lusi-footer">
+      <div class="footer-logo">Lusi Preorder</div>
+      <div class="footer-tagline">✦ Beauty Products and More ✦</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="Bank.html">Bank Account</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Lusi Preorder &nbsp;|&nbsp; lusipreorder@gmail.com &nbsp;|&nbsp; +501 604-6763
+      </div>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ── NAVBAR SHADOW ON SCROLL ──────────────────────────────────
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').style.boxShadow =
+        window.scrollY > 30 ? '0 4px 20px rgba(107,45,94,0.12)' : 'none';
+    });
+
+    // ── PRODUCT DATA ─────────────────────────────────────────────
+    // Full list of 38 products with their image file extensions.
+    // Item 2 is .png; everything else is .jpeg.
+    const allProducts = [
+      { id: 1, ext: 'jpeg' }, { id: 2, ext: 'png'  }, { id: 3, ext: 'jpeg' },
+      { id: 4, ext: 'jpeg' }, { id: 5, ext: 'jpeg' }, { id: 6, ext: 'jpeg' },
+      { id: 7, ext: 'jpeg' }, { id: 8, ext: 'jpeg' }, { id: 9, ext: 'jpeg' },
+      { id: 10, ext: 'jpeg' }, { id: 11, ext: 'jpeg' }, { id: 12, ext: 'jpeg' },
+      { id: 13, ext: 'jpeg' }, { id: 14, ext: 'jpeg' }, { id: 15, ext: 'jpeg' },
+      { id: 16, ext: 'jpeg' }, { id: 17, ext: 'jpeg' }, { id: 18, ext: 'jpeg' },
+      { id: 19, ext: 'jpeg' }, { id: 20, ext: 'jpeg' }, { id: 21, ext: 'jpeg' },
+      { id: 22, ext: 'jpeg' }, { id: 23, ext: 'jpeg' }, { id: 24, ext: 'jpeg' },
+      { id: 25, ext: 'jpeg' }, { id: 26, ext: 'jpeg' }, { id: 27, ext: 'jpeg' },
+      { id: 28, ext: 'jpeg' }, { id: 29, ext: 'jpeg' }, { id: 30, ext: 'jpeg' },
+      { id: 31, ext: 'jpeg' }, { id: 32, ext: 'jpeg' }, { id: 33, ext: 'jpeg' },
+      { id: 34, ext: 'jpeg' }, { id: 35, ext: 'jpeg' }, { id: 36, ext: 'jpeg' },
+      { id: 37, ext: 'jpeg' }, { id: 38, ext: 'jpeg' },
+    ];
+
+    // ── PAGINATION STATE ─────────────────────────────────────────
+    const ITEMS_PER_PAGE = 12;   // Products shown per page
+    let currentPage      = 1;
+    let filteredProducts = [...allProducts]; // Starts as full list; narrows on search
+
+    // WhatsApp SVG icon used inside each card's order button
+    const waSVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`;
+
+    // ── RENDER PRODUCT GRID ──────────────────────────────────────
+    // Slices filteredProducts to show only the current page's items
+    // and injects them as Bootstrap column cards into #productGrid.
+    function renderGrid() {
+      const grid  = document.getElementById('productGrid');
+      const start = (currentPage - 1) * ITEMS_PER_PAGE;
+      const end   = start + ITEMS_PER_PAGE;
+      const items = filteredProducts.slice(start, end);
+
+      grid.innerHTML = '';
+
+      // ── Empty state when search returns nothing ──
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="col-12">
+            <div class="empty-state">
+              <div class="empty-icon">🔍</div>
+              <h3>No products found</h3>
+              <p>Try a different search term, like "item 5" or "#12".</p>
+            </div>
+          </div>`;
+        return;
+      }
+
+      // ── Build a Bootstrap card column for each product ──
+      items.forEach(p => {
+        const waMsg  = encodeURIComponent(`Hi! I'd like to order Item #${p.id} from Lusi Preorder. Can you send me the details & price?`);
+        const waLink = `https://wa.me/5016046763?text=${waMsg}`;
+
+        // Column classes:
+        //   col-6    → 2 cards per row on mobile (phones)
+        //   col-md-4 → 3 cards per row on medium screens (tablets)
+        //   col-xl-3 → 4 cards per row on large screens (desktop)
+        grid.innerHTML += `
+          <div class="col-6 col-md-4 col-xl-3 d-flex" style="animation: fadeUp 0.4s ease both;">
+            <div class="product-card w-100">
+              <div class="card-img-wrap">
+                <span class="card-badge">Pre-order</span>
+                <img src="img/item${p.id}.${p.ext}" alt="Item ${p.id}" loading="lazy">
+              </div>
+              <div class="card-body">
+                <div class="card-title">Item #${p.id}</div>
+                <div class="card-subtitle">Enquire via WhatsApp for product details and price.</div>
+                <a href="${waLink}" target="_blank" rel="noopener" class="card-order-btn">
+                  ${waSVG} Order via WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>`;
+      });
+    }
+
+    // ── RENDER PAGINATION CONTROLS ───────────────────────────────
+    // Generates prev/page-number/next buttons below the product grid.
+    function renderPagination() {
+      const pagination = document.getElementById('pagination');
+      const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+
+      // Update the "Showing X items" count above the grid
+      document.getElementById('itemCount').innerHTML =
+        `Showing <strong>${filteredProducts.length}</strong> item${filteredProducts.length !== 1 ? 's' : ''}`;
+
+      pagination.innerHTML = '';
+      if (totalPages <= 1) return; // No pagination needed if everything fits on one page
+
+      // Previous button (← arrow)
+      const prev = document.createElement('button');
+      prev.className = 'page-btn';
+      prev.textContent = '←';
+      prev.disabled = currentPage === 1;
+      prev.addEventListener('click', () => goToPage(currentPage - 1));
+      pagination.appendChild(prev);
+
+      // Numbered page buttons
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.className = `page-btn${i === currentPage ? ' active' : ''}`;
+        btn.textContent = i;
+        btn.addEventListener('click', () => goToPage(i));
+        pagination.appendChild(btn);
+      }
+
+      // Next button (→ arrow)
+      const next = document.createElement('button');
+      next.className = 'page-btn';
+      next.textContent = '→';
+      next.disabled = currentPage === totalPages;
+      next.addEventListener('click', () => goToPage(currentPage + 1));
+      pagination.appendChild(next);
+    }
+
+    // ── GO TO A SPECIFIC PAGE ────────────────────────────────────
+    function goToPage(page) {
+      currentPage = page;
+      renderGrid();
+      renderPagination();
+      // Smooth-scroll back up to the product grid
+      document.getElementById('productGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ── LIVE SEARCH ──────────────────────────────────────────────
+    // Filters products by ID as the user types.
+    // Typing "5" shows Item #5, typing "item 12" shows Item #12, etc.
+    document.getElementById('searchInput').addEventListener('input', function () {
+      const q = this.value.trim().toLowerCase();
+      filteredProducts = allProducts.filter(p =>
+        `item ${p.id}`.includes(q) || `#${p.id}`.includes(q) || q === ''
+      );
+      currentPage = 1; // Reset to first page on new search
+      renderGrid();
+      renderPagination();
+    });
+
+    // ── INITIAL RENDER ───────────────────────────────────────────
+    renderGrid();
+    renderPagination();
+  </script>
+
+</body>
+</html>

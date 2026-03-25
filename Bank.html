@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay / Bank Account | Lusi Preorder</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💄</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR (Pay / Bank is "active" — darker pill)
+       ══════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg lusi-nav sticky-top" id="mainNav">
+    <div class="container-fluid px-3 px-md-4">
+
+      <a href="index.html" class="navbar-brand d-flex align-items-center gap-2 text-decoration-none">
+        <img src="img/business_logo.jpg" alt="Lusi Preorder" class="nav-logo-img">
+        <span>
+          <span class="brand-name">Lusi Preorder</span>
+          <span class="brand-tagline">Beauty Products and More</span>
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1 py-2 py-lg-0">
+          <li class="nav-item"><a href="index.html"    class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="About.html"    class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="contact.html"  class="nav-link">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <!-- Active state: darker plum background on the pill -->
+            <a href="Bank.html" class="nav-link btn-nav-pill active"
+              style="background: var(--plum-dark);">Pay / Bank</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- ── PAGE HERO BANNER ──────────────────────────────── -->
+    <div class="page-hero">
+      <span class="section-label">✦ Payment Info</span>
+      <h1>Pay &amp; Bank Details</h1>
+      <p>Transfer payment securely to our Atlantic Bank account. Easy &amp; safe 💳</p>
+    </div>
+
+    <!-- ── MAIN CONTENT ──────────────────────────────────── -->
+    <section class="py-5">
+      <div class="container">
+
+        <!--
+          Two-column payment layout using Bootstrap's grid:
+          
+          Left column (col-lg-5)  → Bank card + WhatsApp receipt button
+          Right column (col-lg-7) → Step-by-step "How to Pay" guide
+          
+          On mobile they stack: card first, then steps below.
+        -->
+        <div class="row g-4 g-lg-5 justify-content-center" style="max-width: 900px; margin: 0 auto;">
+
+          <!-- ── LEFT: BANK CARD ─────────────────────────── -->
+          <div class="col-lg-5">
+
+            <!-- Section header above the card -->
+            <div class="text-center mb-4">
+              <span class="section-label">✦ Bank Transfer</span>
+              <h2 class="section-title" style="font-size: 1.6rem;">Account Details</h2>
+            </div>
+
+            <!--
+              The bank-card div is styled in style.css to look like
+              a physical credit card — dark plum gradient with a
+              gold chip rectangle and decorative circle.
+            -->
+            <div class="bank-card">
+
+              <!-- Gold chip (decorative rectangle) -->
+              <div class="bank-chip"></div>
+
+              <!-- Bank name -->
+              <div class="bank-label">Bank</div>
+              <div class="bank-value">Atlantic Bank</div>
+
+              <!-- Account holder name -->
+              <div class="bank-label">Account Name</div>
+              <div class="bank-value">Lusi's Preorder</div>
+
+              <!-- Account number with monospace font and copy button -->
+              <div class="bank-label">Account Number</div>
+              <div class="bank-value" style="font-family: monospace; letter-spacing: 0.12em;">
+                2120007461
+              </div>
+
+              <!-- Tap to copy the account number to clipboard -->
+              <button class="copy-btn" id="copyBtn" onclick="copyAccountNumber()">
+                📋 Copy Account #
+              </button>
+
+              <!-- Reminder note at bottom of card -->
+              <div class="bank-note">
+                Please send a screenshot of your payment receipt via WhatsApp to confirm your order.
+              </div>
+
+            </div><!-- /bank-card -->
+
+            <!-- WhatsApp button below the card to send the receipt -->
+            <div class="text-center mt-4">
+              <a href="https://wa.me/5016046763?text=Hi!%20I%20just%20made%20a%20bank%20transfer%20for%20my%20order.%20Here's%20my%20receipt%20screenshot!"
+                target="_blank" rel="noopener" class="btn-lusi btn-gold">
+                💬 Send Receipt on WhatsApp
+              </a>
+            </div>
+
+          </div><!-- /left column -->
+
+          <!-- ── RIGHT: STEP-BY-STEP GUIDE ──────────────── -->
+          <div class="col-lg-7">
+
+            <h3 class="section-title mb-4" style="font-size: 1.5rem;">
+              How to Pay 💜
+            </h3>
+
+            <!--
+              Each .step-item is a flex row:
+              [circle number] [heading + description text]
+              Styled in style.css under .step-item / .step-num / .step-content
+            -->
+
+            <!-- Step 1 -->
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h5>Browse &amp; Choose Products</h5>
+                <p>
+                  Go to our <a href="products.html" style="color:var(--plum)">Products page</a>
+                  and pick what you want. Tap "Order via WhatsApp" to let us know.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h5>Confirm Your Order</h5>
+                <p>
+                  Chat with us on WhatsApp (+501 604-6763). We'll confirm availability,
+                  pricing, and your delivery location.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h5>Transfer Payment</h5>
+                <p>
+                  Send the agreed amount to our Atlantic Bank account
+                  (<strong>2120007461</strong>, Account Name: Lusi's Preorder).
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h5>Send Your Receipt</h5>
+                <p>
+                  Take a screenshot of the bank transfer confirmation and send it to us
+                  on WhatsApp. This confirms your payment.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-item">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h5>Wait for Delivery 🎉</h5>
+                <p>
+                  Sit back and relax! We'll arrange delivery to your location and
+                  keep you updated every step of the way.
+                </p>
+              </div>
+            </div>
+
+            <!-- ── IMPORTANT NOTE BOX ──────────────────── -->
+            <div class="alert-lusi mt-2">
+              <span class="fs-5 me-1">⚠️</span>
+              <span>
+                <strong>Important:</strong> Always send your receipt screenshot via WhatsApp
+                after paying. Orders are only confirmed once payment is verified.
+                For questions, call or message us at <strong>604-6763</strong>.
+              </span>
+            </div>
+
+          </div><!-- /right column -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ────────────────────────────────────────── -->
+    <footer class="lusi-footer">
+      <div class="footer-logo">Lusi Preorder</div>
+      <div class="footer-tagline">✦ Beauty Products and More ✦</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="Bank.html">Bank Account</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Lusi Preorder &nbsp;|&nbsp; lusipreorder@gmail.com &nbsp;|&nbsp; +501 604-6763
+      </div>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ── NAVBAR SHADOW ON SCROLL ──────────────────────────────────
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').style.boxShadow =
+        window.scrollY > 30 ? '0 4px 20px rgba(107,45,94,0.12)' : 'none';
+    });
+
+    // ── COPY ACCOUNT NUMBER ──────────────────────────────────────
+    // Uses the Clipboard API to let users tap and copy the account
+    // number without having to type it manually.
+    function copyAccountNumber() {
+      const accountNumber = '2120007461';
+
+      navigator.clipboard.writeText(accountNumber)
+        .then(() => {
+          // Visual feedback: change button text for 2 seconds
+          const btn = document.getElementById('copyBtn');
+          btn.textContent = '✅ Copied!';
+          setTimeout(() => { btn.textContent = '📋 Copy Account #'; }, 2000);
+        })
+        .catch(() => {
+          // Fallback for older browsers that don't support Clipboard API
+          alert('Account Number: 2120007461');
+        });
+    }
+  </script>
+
+</body>
+</html>
